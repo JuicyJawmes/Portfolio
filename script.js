@@ -176,6 +176,10 @@ async function initMacintoshScene() {
   frontFill.position.set(2.8, 2.7, 4.8);
   scene.add(frontFill);
 
+  const floppyFill = new THREE.PointLight(0xffe3bd, 1.25, 4.2, 1.8);
+  floppyFill.position.set(0, 0.9, 3.25);
+  scene.add(floppyFill);
+
   const loader = new GLTFLoader();
 
   const diskConfigs = [
@@ -252,28 +256,16 @@ async function initMacintoshScene() {
   }
 
   function liftFloppyMaterial(material) {
-    const brightness = getMaterialBrightness(material);
-
-    if (!material?.color || brightness < 0.08) {
+    if (!material?.color) {
       return;
     }
 
-    const hsl = {};
-    material.color.getHSL(hsl);
-
-    if (hsl.s > 0.16) {
-      hsl.s = Math.min(1, hsl.s * 1.32 + 0.06);
-      hsl.l = THREE.MathUtils.clamp(hsl.l * 1.12 + 0.055, 0.16, 0.72);
-    } else {
-      hsl.l = THREE.MathUtils.clamp(hsl.l * 1.12 + 0.055, 0.2, 0.78);
-    }
-
-    material.color.setHSL(hsl.h, hsl.s, hsl.l);
-    material.roughness = Math.min(material.roughness ?? 0.74, 0.7);
+    material.color.setRGB(1.18, 1.18, 1.18);
+    material.roughness = Math.min(material.roughness ?? 0.74, 0.64);
 
     if (material.emissive) {
-      material.emissive.copy(material.color).multiplyScalar(hsl.s > 0.16 ? 0.052 : 0.022);
-      material.emissiveIntensity = 1;
+      material.emissive.setRGB(1, 0.9, 0.78);
+      material.emissiveIntensity = 0.06;
     }
 
     material.needsUpdate = true;
