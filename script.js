@@ -162,38 +162,6 @@ async function initMacintoshScene() {
   floor.receiveShadow = false;
   scene.add(floor);
 
-  const tabletop = new THREE.Mesh(
-    new THREE.CircleGeometry(1, 96),
-    new THREE.MeshBasicMaterial({
-      color: 0xd9c5a0,
-      transparent: true,
-      opacity: 0.06,
-      depthWrite: false,
-    }),
-  );
-  tabletop.rotation.x = -Math.PI / 2;
-  tabletop.position.set(0.08, -1.01, 0.88);
-  tabletop.scale.set(3.35, 1.62, 1);
-  tabletop.renderOrder = -1;
-  scene.add(tabletop);
-
-  const tabletopRim = new THREE.Mesh(
-    new THREE.RingGeometry(0.985, 1, 96),
-    new THREE.MeshBasicMaterial({
-      color: 0xf1dfbd,
-      transparent: true,
-      opacity: 0.055,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-    }),
-  );
-  tabletopRim.rotation.x = -Math.PI / 2;
-  tabletopRim.position.copy(tabletop.position);
-  tabletopRim.position.y += 0.002;
-  tabletopRim.scale.copy(tabletop.scale);
-  tabletopRim.renderOrder = -1;
-  scene.add(tabletopRim);
-
   scene.add(new THREE.AmbientLight(0xf8f3e6, 0.92));
   scene.add(new THREE.HemisphereLight(0xffffff, 0xa7b2ae, 0.82));
 
@@ -434,8 +402,6 @@ async function initMacintoshScene() {
     modelPivot.position.x += framedSize.x * 0.1;
     modelPivot.position.y -= 0.12;
     diskRoot.position.y -= 0.12;
-    tabletop.position.y -= 0.12;
-    tabletopRim.position.y -= 0.12;
 
     camera.position.set(0, 1.82, 8.25);
     camera.lookAt(0, 0.16, 0);
