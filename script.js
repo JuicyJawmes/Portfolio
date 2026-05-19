@@ -135,7 +135,7 @@ async function initMacintoshScene() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.03;
+  renderer.toneMappingExposure = 0.9;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 1000);
@@ -162,17 +162,17 @@ async function initMacintoshScene() {
   floor.receiveShadow = false;
   scene.add(floor);
 
-  scene.add(new THREE.AmbientLight(0xf8f3e6, 0.92));
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xa7b2ae, 0.82));
+  scene.add(new THREE.AmbientLight(0xf8f3e6, 0.68));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xa7b2ae, 0.58));
 
-  const keyLight = new THREE.DirectionalLight(0xfff2d6, 1.12);
+  const keyLight = new THREE.DirectionalLight(0xfff2d6, 0.86);
   keyLight.position.set(-3.6, 5.6, 4.8);
   keyLight.castShadow = false;
   keyLight.shadow.mapSize.set(1024, 1024);
   keyLight.shadow.bias = -0.00004;
   scene.add(keyLight);
 
-  const frontFill = new THREE.DirectionalLight(0xdde9eb, 0.54);
+  const frontFill = new THREE.DirectionalLight(0xdde9eb, 0.36);
   frontFill.position.set(2.8, 2.7, 4.8);
   scene.add(frontFill);
 
