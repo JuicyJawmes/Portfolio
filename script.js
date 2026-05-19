@@ -258,11 +258,21 @@ async function initMacintoshScene() {
       return;
     }
 
-    material.color.lerp(new THREE.Color(0xffffff), 0.08).multiplyScalar(1.22);
-    material.roughness = Math.min(material.roughness ?? 0.74, 0.68);
+    const hsl = {};
+    material.color.getHSL(hsl);
+
+    if (hsl.s > 0.16) {
+      hsl.s = Math.min(1, hsl.s * 1.32 + 0.06);
+      hsl.l = THREE.MathUtils.clamp(hsl.l * 1.04 + 0.025, 0.12, 0.62);
+    } else {
+      hsl.l = THREE.MathUtils.clamp(hsl.l * 1.08 + 0.035, 0.18, 0.72);
+    }
+
+    material.color.setHSL(hsl.h, hsl.s, hsl.l);
+    material.roughness = Math.min(material.roughness ?? 0.74, 0.7);
 
     if (material.emissive) {
-      material.emissive.copy(material.color).multiplyScalar(0.11);
+      material.emissive.copy(material.color).multiplyScalar(hsl.s > 0.16 ? 0.035 : 0.015);
       material.emissiveIntensity = 1;
     }
 
