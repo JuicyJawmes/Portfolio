@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>James Dao | Computer Engineering Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio for James Dao, a computer engineering graduate focused on PCB design, embedded systems, edge AI, and full-stack applications."
+    />
+    <meta property="og:title" content="James Dao | Computer Engineering Portfolio" />
+    <meta
+      property="og:description"
+      content="Hardware-minded software portfolio featuring PCB design, embedded systems, edge AI, and applied ML projects."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/vendor/three/three.module.js"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <header class="topbar" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Portfolio home">
+        <span>Portfolio</span>
+      </a>
+      <a class="icon-link" href="assets/james-dao-resume.pdf" target="_blank" rel="noreferrer">
+        <i data-lucide="file-down" aria-hidden="true"></i>
+        Resume
+      </a>
+    </header>
+
+    <main>
+      <section class="hero product-hero" id="home" aria-label="Interactive Macintosh portfolio hub">
+        <div class="hero-name" aria-label="James Dao">
+          <span>James Dao</span>
+          <small>Computer Engineering · Embedded Systems · Edge AI · PCB Design</small>
+        </div>
+
+        <div class="keyboard-stage" id="keyboard-stage">
+          <button class="keyboard-model" id="keyboard-model" type="button" aria-label="Interactive Macintosh model">
+            <span class="screen-reader-text">Use the labels on the Macintosh to open portfolio information.</span>
+            <canvas id="keyboard-canvas" aria-hidden="true"></canvas>
+            <span class="keyboard-fallback" aria-hidden="true">3D Macintosh portfolio hub</span>
+          </button>
+
+          <div class="mac-hotspots" aria-label="Macintosh portfolio controls">
+            <button class="mac-hotspot hotspot-monitor" type="button" data-hub-open="about">
+              <span class="headshot-frame">
+                <img src="assets/headshot-portrait.jpg?v=3" alt="James Dao headshot" />
+              </span>
+              <span class="hotspot-label">About Me</span>
+            </button>
+          </div>
+
+          <div class="disk-dock" aria-label="Portfolio floppy disks">
+            <button class="floppy-button disk-projects" type="button" data-hub-open="projects">
+              <span class="disk-shutter"></span>
+              <span class="disk-label">Projects</span>
+            </button>
+            <button class="floppy-button disk-experience" type="button" data-hub-open="experience">
+              <span class="disk-shutter"></span>
+              <span class="disk-label">Experience</span>
+            </button>
+            <button class="floppy-button disk-skills" type="button" data-hub-open="skills">
+              <span class="disk-shutter"></span>
+              <span class="disk-label">Skills</span>
+            </button>
+          </div>
+
+          <div class="floppy-card" aria-hidden="true">
+            <span></span>
+          </div>
+
+          <article class="hub-detail" id="hub-detail" aria-live="polite" aria-hidden="true">
+            <button class="hub-back" id="hub-back" type="button" aria-label="Return to Macintosh">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+              Back
+            </button>
+            <p class="hub-detail-kicker" id="hub-detail-kicker">About Me</p>
+            <h2 id="hub-detail-title">James Dao</h2>
+            <div class="hub-detail-body" id="hub-detail-body"></div>
+          </article>
+
+          <div class="part-actions" aria-label="Portfolio navigation">
+            <a class="part-link link-projects" href="#projects">
+              <strong>Projects</strong>
+              <span>PCB, AIoT, ML</span>
+            </a>
+            <a class="part-link link-experience" href="#experience">
+              <strong>Experience</strong>
+              <span>IEEE, AI, VR</span>
+            </a>
+            <a class="part-link link-skills" href="#skills">
+              <strong>Skills</strong>
+              <span>Stack + tools</span>
+            </a>
+            <a class="part-link link-resume" href="assets/james-dao-resume.pdf" target="_blank" rel="noreferrer">
+              <strong>Resume</strong>
+              <span>PDF</span>
+            </a>
+            <a
+              class="part-link link-linkedin"
+              href="https://www.linkedin.com/in/james-dao-920b45246"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>LinkedIn</strong>
+              <span>Profile</span>
+            </a>
+            <a
+              class="part-link link-contact"
+              href="mailto:james.k.dao@gmail.com?subject=Portfolio%20Inquiry%20for%20James%20Dao"
+            >
+              <strong>Contact</strong>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+        <a class="contact-float" href="mailto:james.k.dao@gmail.com?subject=Portfolio%20Inquiry%20for%20James%20Dao">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          Contact
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
