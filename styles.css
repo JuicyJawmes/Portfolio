@@ -41,12 +41,10 @@ body::after {
 }
 
 body::before {
-  inset: -4px;
+  inset: 0;
   z-index: -2;
-  background: url("assets/background-desk.png") center 62% / cover no-repeat;
+  background: url("assets/background2.png") center / cover no-repeat;
   opacity: 1;
-  filter: blur(2px);
-  transform: scale(1.006);
 }
 
 body::after {
