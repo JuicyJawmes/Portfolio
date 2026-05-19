@@ -83,9 +83,9 @@ textarea {
   gap: 24px;
   min-height: 72px;
   padding: 14px clamp(18px, 4vw, 56px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(139, 151, 150, 0.42);
-  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 239, 210, 0.18);
+  background: rgba(136, 112, 82, 0.34);
+  backdrop-filter: blur(18px) saturate(1.08);
 }
 
 .brand,
@@ -141,12 +141,13 @@ footer a:hover {
 .icon-link {
   min-height: 40px;
   padding: 0 14px;
-  border: 1px solid rgba(23, 23, 23, 0.14);
+  border: 1px solid rgba(67, 50, 34, 0.16);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.54);
+  background: rgba(246, 238, 223, 0.68);
   color: var(--ink);
   font-weight: 680;
   white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(45, 34, 24, 0.08);
 }
 
 .icon-link svg,
