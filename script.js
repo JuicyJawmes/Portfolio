@@ -14,50 +14,83 @@ const formNote = document.querySelector("#form-note");
 
 const hubContent = {
   about: {
-    kicker: "Monitor",
+    kicker: "",
     title: "About Me",
     body: `
-      <img class="hub-headshot" src="assets/headshot-portrait.jpg?v=3" alt="James Dao headshot" />
-      <p>I am James Dao, a computer engineering graduate focused on embedded systems, PCB design, edge AI, and practical software.</p>
-      <p>I like building things where hardware and software meet: custom boards, sensor-driven systems, real-time ML, and interfaces that make technical systems easier to use.</p>
-      <div class="hub-pill-row">
-        <span>MS Computer Engineering</span>
-        <span>Houston, TX</span>
-        <span>Entry level roles</span>
+      <div class="hub-profile">
+        <img class="hub-headshot" src="assets/headshot-portrait.jpg?v=3" alt="James Dao headshot" />
+        <div>
+          <p>I am a computer engineering graduate focused on embedded systems, PCB design, edge AI, and practical software.</p>
+          <p>I like building where hardware and software meet: custom boards, sensor-driven systems, real-time ML, and interfaces that make technical systems easier to use.</p>
+        </div>
+      </div>
+      <div class="hub-stat-grid">
+        <span><strong>Degree</strong>MS Computer Engineering</span>
+        <span><strong>Location</strong>Houston, TX</span>
+        <span><strong>Focus</strong>Embedded + edge AI</span>
       </div>
     `,
   },
   projects: {
-    //kicker: "Red Floppy",
+    kicker: "",
     title: "Projects",
     body: `
-      <div class="hub-list">
-        <div><strong>Keyboard PCB Design</strong><span>USB-C mechanical keyboard PCB with RP2040, routed switch matrix, power regulation, ESD protection, and 4-layer layout.</span></div>
-        <div><strong>Facial Recognition IoT</strong><span>Edge identity verification system with low-latency inference, AWS logging, and alerting.</span></div>
-        <div><strong>AR LingoQuest</strong><span>Augmented reality language-learning experience with interactive vocabulary practice and immersive visual prompts.</span></div>
-        <div><strong>Pokemon Fullstack</strong><span>Full-stack Pokemon web application with searchable character data, responsive UI, and API-driven project architecture.</span></div>
+      <div class="hub-card-grid">
+        <article class="hub-card">
+          <span class="hub-card-meta">PCB + firmware</span>
+          <strong>Keyboard PCB Design</strong>
+          <p>USB-C mechanical keyboard PCB with RP2040, routed switch matrix, power regulation, ESD protection, and 4-layer layout.</p>
+          <div class="hub-tag-row"><span>KiCad</span><span>RP2040</span><span>USB-C</span><span>4-layer PCB</span></div>
+        </article>
+        <article class="hub-card">
+          <span class="hub-card-meta">Edge AI + IoT</span>
+          <strong>Facial Recognition IoT</strong>
+          <p>Edge identity verification system with low-latency inference, AWS logging, and alerting.</p>
+          <div class="hub-tag-row"><span>Python</span><span>Edge AI</span><span>AWS</span><span>IoT logging</span></div>
+        </article>
+        <article class="hub-card">
+          <span class="hub-card-meta">AR learning</span>
+          <strong>AR LingoQuest</strong>
+          <p>Augmented reality language-learning experience with interactive vocabulary practice and immersive visual prompts.</p>
+          <div class="hub-tag-row"><span>Unity</span><span>C#</span><span>AR</span><span>Interactive UI</span></div>
+        </article>
+        <article class="hub-card">
+          <span class="hub-card-meta">Full stack</span>
+          <strong>Pokemon Fullstack</strong>
+          <p>Full-stack Pokemon web application with searchable character data, responsive UI, and API-driven architecture.</p>
+          <div class="hub-tag-row"><span>React</span><span>Node.js</span><span>REST API</span><span>Responsive UI</span></div>
+        </article>
       </div>
     `,
   },
   skills: {
-    //kicker: "Blue Floppy",
+    kicker: "",
     title: "Skills",
     body: `
-      <div class="hub-skill-grid">
-        <span>Python</span><span>C++</span><span>C</span><span>Java</span><span>Verilog</span><span>KiCad</span>
-        <span>PCB Design</span><span>Embedded Systems</span><span>Arduino</span><span>Raspberry Pi</span><span>USB 2.0</span><span>UART/I2C/SPI</span>
-        <span>PyTorch</span><span>Hugging Face</span><span>AWS</span><span>Firebase</span><span>Docker</span><span>Unity</span>
+      <div class="hub-skill-columns">
+        <section>
+          <h3>Hardware</h3>
+          <div class="hub-skill-grid"><span>KiCad</span><span>PCB Design</span><span>Embedded Systems</span><span>USB 2.0</span><span>UART/I2C/SPI</span><span>Arduino</span><span>Raspberry Pi</span></div>
+        </section>
+        <section>
+          <h3>Software</h3>
+          <div class="hub-skill-grid"><span>Python</span><span>C++</span><span>C</span><span>Java</span><span>Verilog</span><span>Docker</span><span>Firebase</span></div>
+        </section>
+        <section>
+          <h3>AI + Tools</h3>
+          <div class="hub-skill-grid"><span>PyTorch</span><span>Hugging Face</span><span>AWS</span><span>Unity</span><span>Transfer Learning</span><span>LoRA / PEFT</span></div>
+        </section>
       </div>
     `,
   },
   experience: {
-    //kicker: "Green Floppy",
+    kicker: "",
     title: "Experience",
     body: `
       <div class="hub-timeline">
-        <div><span>Aug 2023 - Aug 2025</span><strong>IEEE Computational Intelligence Society Director</strong><p>Established a society branch, increased engagement by 25%, and led ML events for 100+ participants.</p></div>
-        <div><span>June 2024 - Aug 2024</span><strong>Cognizant Generative AI Externship</strong><p>Worked with PyTorch, Hugging Face, transfer learning, and LoRA-based PEFT techniques.</p></div>
-        <div><span>Aug 2023 - Dec 2023</span><strong>Multimodal Interaction Lab Research Intern</strong><p>Built Unity VR interfaces with C#, real-time sensor input, tactile feedback, and haptic interaction techniques.</p></div>
+        <article class="hub-role"><span>Aug 2023 - Aug 2025</span><strong>IEEE Computational Intelligence Society Director</strong><p>Established a society branch, increased engagement by 25%, and led ML events for 100+ participants.</p></article>
+        <article class="hub-role"><span>June 2024 - Aug 2024</span><strong>Cognizant Generative AI Externship</strong><p>Worked with PyTorch, Hugging Face, transfer learning, and LoRA-based PEFT techniques.</p></article>
+        <article class="hub-role"><span>Aug 2023 - Dec 2023</span><strong>Multimodal Interaction Lab Research Intern</strong><p>Built Unity VR interfaces with C#, real-time sensor input, tactile feedback, and haptic interaction techniques.</p></article>
       </div>
     `,
   },
@@ -75,7 +108,8 @@ function openHub(section) {
   }
 
   activeHub = section;
-  hubKicker.textContent = content.kicker;
+  hubKicker.textContent = content.kicker || "";
+  hubKicker.hidden = !content.kicker;
   hubTitle.textContent = content.title;
   hubBody.innerHTML = content.body;
   heroStage.dataset.activeHub = section;
