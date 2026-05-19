@@ -41,21 +41,21 @@ body::after {
 }
 
 body::before {
-  inset: -32px;
+  inset: -14px;
   z-index: -2;
   background: url("assets/background-desk.png") center / cover no-repeat;
-  opacity: 0.76;
-  filter: blur(24px) saturate(0.78) brightness(0.72);
-  transform: scale(1.05);
+  opacity: 0.88;
+  filter: blur(8px) saturate(0.94) brightness(0.78);
+  transform: scale(1.018);
 }
 
 body::after {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 43%, rgba(226, 229, 214, 0.38), transparent 24%),
-    radial-gradient(circle at 50% 62%, rgba(20, 29, 31, 0.22), transparent 37%),
-    linear-gradient(180deg, rgba(118, 135, 136, 0.78) 0%, rgba(91, 111, 113, 0.82) 100%);
+    radial-gradient(circle at 50% 43%, rgba(226, 229, 214, 0.22), transparent 24%),
+    radial-gradient(circle at 50% 62%, rgba(20, 29, 31, 0.18), transparent 37%),
+    linear-gradient(180deg, rgba(113, 128, 130, 0.46) 0%, rgba(72, 91, 94, 0.56) 100%);
 }
 
 body::selection {
