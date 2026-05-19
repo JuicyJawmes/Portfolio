@@ -1818,6 +1818,11 @@ footer div {
   text-align: center;
 }
 
+.hub-language-grid span {
+  min-width: 72px;
+  text-align: center;
+}
+
 .hub-skill-columns {
   display: grid;
   gap: 10px;

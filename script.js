@@ -70,7 +70,7 @@ const hubContent = {
         </section>
         <section>
           <h3>Languages</h3>
-          <div class="hub-skill-grid"><span>Java</span><span>Python</span><span>C++</span><span>C#</span><span>C</span><span>HTML/CSS</span><span>SQL</span></div>
+          <div class="hub-skill-grid hub-language-grid"><span>Java</span><span>Python</span><span>C++</span><span>C#</span><span>C</span><span>HTML/CSS</span><span>SQL</span></div>
         </section>
         <section>
           <h3>Developer Tools</h3>
