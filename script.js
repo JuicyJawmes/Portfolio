@@ -38,22 +38,22 @@ const hubContent = {
       <div class="hub-card-grid">
         <article class="hub-card">
           <strong>Keyboard PCB Design</strong>
-          <p>USB-C mechanical keyboard PCB with RP2040, routed switch matrix, power regulation, ESD protection, and 4-layer layout.</p>
+          <p>USB-C RP2040 keyboard PCB with routed matrix, power regulation, and 4-layer layout.</p>
           <div class="hub-tag-row"><span>KiCad</span><span>RP2040</span><span>USB-C</span><span>4-layer PCB</span></div>
         </article>
         <article class="hub-card">
           <strong>Facial Recognition IoT</strong>
-          <p>Edge identity verification system with low-latency inference, AWS logging, and alerting.</p>
+          <p>Low-latency edge identity system with AWS logging and alerting.</p>
           <div class="hub-tag-row"><span>Python</span><span>Edge AI</span><span>AWS</span><span>IoT logging</span></div>
         </article>
         <article class="hub-card">
           <strong>AR LingoQuest</strong>
-          <p>Augmented reality language-learning experience with interactive vocabulary practice and immersive visual prompts.</p>
+          <p>AR language-learning app with vocabulary practice and immersive visual prompts.</p>
           <div class="hub-tag-row"><span>Unity</span><span>C#</span><span>AR</span><span>Interactive UI</span></div>
         </article>
         <article class="hub-card">
           <strong>Pokemon Fullstack</strong>
-          <p>Full-stack Pokemon web application with searchable character data, responsive UI, and API-driven architecture.</p>
+          <p>Full-stack Pokemon app with search, responsive UI, and REST API data.</p>
           <div class="hub-tag-row"><span>React</span><span>Node.js</span><span>REST API</span><span>Responsive UI</span></div>
         </article>
       </div>
