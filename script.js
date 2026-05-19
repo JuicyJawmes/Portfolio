@@ -230,6 +230,44 @@ async function initMacintoshScene() {
     });
   }
 
+  function getMaterialBrightness(material) {
+    if (!material?.color) {
+      return 0;
+    }
+
+    return (material.color.r + material.color.g + material.color.b) / 3;
+  }
+
+  function softenMacintoshMaterial(material) {
+    const brightness = getMaterialBrightness(material);
+
+    if (!material?.color || brightness < 0.58) {
+      return;
+    }
+
+    material.color.lerp(new THREE.Color(0xd6c8ab), 0.34).multiplyScalar(0.88);
+    material.roughness = Math.max(material.roughness ?? 0.72, 0.82);
+    material.metalness = Math.min(material.metalness ?? 0, 0.08);
+    material.needsUpdate = true;
+  }
+
+  function liftFloppyMaterial(material) {
+    const brightness = getMaterialBrightness(material);
+
+    if (!material?.color || brightness < 0.14) {
+      return;
+    }
+
+    material.color.multiplyScalar(1.08);
+
+    if (material.emissive) {
+      material.emissive.copy(material.color).multiplyScalar(0.045);
+      material.emissiveIntensity = 1;
+    }
+
+    material.needsUpdate = true;
+  }
+
   function getFlatRotation(size, yaw, tilt = 0) {
     const axes = [
       { key: "x", value: size.x },
@@ -266,6 +304,7 @@ async function initMacintoshScene() {
       materials.forEach((material) => {
         if (material) {
           material.roughness = Math.min(material.roughness ?? 0.8, 0.88);
+          liftFloppyMaterial(material);
           material.needsUpdate = true;
         }
       });
@@ -374,9 +413,7 @@ async function initMacintoshScene() {
         object.castShadow = false;
         object.receiveShadow = false;
 
-        if (object.material) {
-          object.material.needsUpdate = true;
-        }
+        materials.forEach(softenMacintoshMaterial);
       }
     });
 
