@@ -254,14 +254,15 @@ async function initMacintoshScene() {
   function liftFloppyMaterial(material) {
     const brightness = getMaterialBrightness(material);
 
-    if (!material?.color || brightness < 0.14) {
+    if (!material?.color || brightness < 0.08) {
       return;
     }
 
-    material.color.multiplyScalar(1.08);
+    material.color.lerp(new THREE.Color(0xffffff), 0.08).multiplyScalar(1.22);
+    material.roughness = Math.min(material.roughness ?? 0.74, 0.68);
 
     if (material.emissive) {
-      material.emissive.copy(material.color).multiplyScalar(0.045);
+      material.emissive.copy(material.color).multiplyScalar(0.11);
       material.emissiveIntensity = 1;
     }
 
