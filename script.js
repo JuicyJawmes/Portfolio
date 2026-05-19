@@ -135,7 +135,7 @@ async function initMacintoshScene() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.16;
+  renderer.toneMappingExposure = 1.03;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 1000);
@@ -165,9 +165,9 @@ async function initMacintoshScene() {
   const tabletop = new THREE.Mesh(
     new THREE.CircleGeometry(1, 96),
     new THREE.MeshBasicMaterial({
-      color: 0x5f747b,
+      color: 0xd9c5a0,
       transparent: true,
-      opacity: 0.26,
+      opacity: 0.16,
       depthWrite: false,
     }),
   );
@@ -180,9 +180,9 @@ async function initMacintoshScene() {
   const tabletopRim = new THREE.Mesh(
     new THREE.RingGeometry(0.985, 1, 96),
     new THREE.MeshBasicMaterial({
-      color: 0xc9d2ce,
+      color: 0xf1dfbd,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.12,
       side: THREE.DoubleSide,
       depthWrite: false,
     }),
@@ -194,17 +194,17 @@ async function initMacintoshScene() {
   tabletopRim.renderOrder = -1;
   scene.add(tabletopRim);
 
-  scene.add(new THREE.AmbientLight(0xf8f3e6, 1.18));
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xa7b2ae, 1.05));
+  scene.add(new THREE.AmbientLight(0xf8f3e6, 0.92));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xa7b2ae, 0.82));
 
-  const keyLight = new THREE.DirectionalLight(0xfff2d6, 1.55);
+  const keyLight = new THREE.DirectionalLight(0xfff2d6, 1.12);
   keyLight.position.set(-3.6, 5.6, 4.8);
   keyLight.castShadow = false;
   keyLight.shadow.mapSize.set(1024, 1024);
   keyLight.shadow.bias = -0.00004;
   scene.add(keyLight);
 
-  const frontFill = new THREE.DirectionalLight(0xdde9eb, 0.78);
+  const frontFill = new THREE.DirectionalLight(0xdde9eb, 0.54);
   frontFill.position.set(2.8, 2.7, 4.8);
   scene.add(frontFill);
 
