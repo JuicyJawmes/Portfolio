@@ -37,25 +37,21 @@ const hubContent = {
     body: `
       <div class="hub-card-grid">
         <article class="hub-card">
-          <span class="hub-card-meta">PCB + firmware</span>
           <strong>Keyboard PCB Design</strong>
           <p>USB-C mechanical keyboard PCB with RP2040, routed switch matrix, power regulation, ESD protection, and 4-layer layout.</p>
           <div class="hub-tag-row"><span>KiCad</span><span>RP2040</span><span>USB-C</span><span>4-layer PCB</span></div>
         </article>
         <article class="hub-card">
-          <span class="hub-card-meta">Edge AI + IoT</span>
           <strong>Facial Recognition IoT</strong>
           <p>Edge identity verification system with low-latency inference, AWS logging, and alerting.</p>
           <div class="hub-tag-row"><span>Python</span><span>Edge AI</span><span>AWS</span><span>IoT logging</span></div>
         </article>
         <article class="hub-card">
-          <span class="hub-card-meta">AR learning</span>
           <strong>AR LingoQuest</strong>
           <p>Augmented reality language-learning experience with interactive vocabulary practice and immersive visual prompts.</p>
           <div class="hub-tag-row"><span>Unity</span><span>C#</span><span>AR</span><span>Interactive UI</span></div>
         </article>
         <article class="hub-card">
-          <span class="hub-card-meta">Full stack</span>
           <strong>Pokemon Fullstack</strong>
           <p>Full-stack Pokemon web application with searchable character data, responsive UI, and API-driven architecture.</p>
           <div class="hub-tag-row"><span>React</span><span>Node.js</span><span>REST API</span><span>Responsive UI</span></div>
@@ -70,15 +66,23 @@ const hubContent = {
       <div class="hub-skill-columns">
         <section>
           <h3>Hardware</h3>
-          <div class="hub-skill-grid"><span>KiCad</span><span>PCB Design</span><span>Embedded Systems</span><span>USB 2.0</span><span>UART/I2C/SPI</span><span>Arduino</span><span>Raspberry Pi</span></div>
+          <div class="hub-skill-grid"><span>KiCad</span><span>PCB Design</span><span>Embedded Systems</span><span>USB 2.0</span><span>UART/I2C/SPI</span><span>Microcontrollers</span></div>
         </section>
         <section>
-          <h3>Software</h3>
-          <div class="hub-skill-grid"><span>Python</span><span>C++</span><span>C</span><span>Java</span><span>Verilog</span><span>Docker</span><span>Firebase</span></div>
+          <h3>Languages</h3>
+          <div class="hub-skill-grid"><span>Java</span><span>Python</span><span>C++</span><span>C#</span><span>C</span><span>HTML/CSS</span><span>SQL</span></div>
         </section>
         <section>
-          <h3>AI + Tools</h3>
-          <div class="hub-skill-grid"><span>PyTorch</span><span>Hugging Face</span><span>AWS</span><span>Unity</span><span>Transfer Learning</span><span>LoRA / PEFT</span></div>
+          <h3>Developer Tools</h3>
+          <div class="hub-skill-grid"><span>Docker</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Kubernetes</span></div>
+        </section>
+        <section>
+          <h3>Databases</h3>
+          <div class="hub-skill-grid"><span>MongoDB</span><span>Firebase</span></div>
+        </section>
+        <section>
+          <h3>Technologies / Frameworks</h3>
+          <div class="hub-skill-grid"><span>Spring Boot</span><span>React</span><span>React Native</span><span>Flask</span><span>RESTful APIs</span><span>PyTorch</span><span>TensorFlow</span><span>Hugging Face</span></div>
         </section>
       </div>
     `,
