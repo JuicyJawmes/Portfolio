@@ -27,7 +27,7 @@ const hubContent = {
       <div class="hub-stat-grid">
         <span><strong>Degree</strong>MS Computer Engineering</span>
         <span><strong>Location</strong>Houston, TX</span>
-        <span><strong>Focus</strong>Embedded + edge AI</span>
+        <span><strong>Seeking</strong>Entry-level roles</span>
       </div>
     `,
   },
