@@ -167,7 +167,7 @@ async function initMacintoshScene() {
     new THREE.MeshBasicMaterial({
       color: 0xd9c5a0,
       transparent: true,
-      opacity: 0.16,
+      opacity: 0.06,
       depthWrite: false,
     }),
   );
@@ -182,7 +182,7 @@ async function initMacintoshScene() {
     new THREE.MeshBasicMaterial({
       color: 0xf1dfbd,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.055,
       side: THREE.DoubleSide,
       depthWrite: false,
     }),
@@ -432,6 +432,10 @@ async function initMacintoshScene() {
     modelRoot.position.sub(framedCenter);
     modelRoot.position.y += framedSize.y * 0.18;
     modelPivot.position.x += framedSize.x * 0.1;
+    modelPivot.position.y -= 0.12;
+    diskRoot.position.y -= 0.12;
+    tabletop.position.y -= 0.12;
+    tabletopRim.position.y -= 0.12;
 
     camera.position.set(0, 1.82, 8.25);
     camera.lookAt(0, 0.16, 0);

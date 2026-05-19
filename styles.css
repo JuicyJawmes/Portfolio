@@ -81,8 +81,8 @@ textarea {
   gap: 24px;
   min-height: 72px;
   padding: 14px clamp(18px, 4vw, 56px);
-  border-bottom: 1px solid rgba(255, 239, 210, 0.18);
-  background: rgba(136, 112, 82, 0.34);
+  border-bottom: 1px solid rgba(255, 239, 210, 0.12);
+  background: rgba(136, 112, 82, 0.22);
   backdrop-filter: blur(18px) saturate(1.08);
 }
 
@@ -141,7 +141,7 @@ footer a:hover {
   padding: 0 14px;
   border: 1px solid rgba(67, 50, 34, 0.16);
   border-radius: var(--radius);
-  background: rgba(246, 238, 223, 0.68);
+  background: rgba(246, 238, 223, 0.58);
   color: var(--ink);
   font-weight: 680;
   white-space: nowrap;
