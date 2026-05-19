@@ -147,6 +147,7 @@ async function initMacintoshScene() {
   const diskEntries = [];
   let hoveredDisk = null;
   let diskAnimation = null;
+  let introComplete = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   scene.add(modelPivot);
   scene.add(diskRoot);
   modelPivot.add(modelRoot);
@@ -240,6 +241,11 @@ async function initMacintoshScene() {
   ];
 
   const easeOut = (value) => 1 - Math.pow(1 - value, 3);
+  const easeOutBack = (value) => {
+    const c1 = 1.70158;
+    const c3 = c1 + 1;
+    return 1 + c3 * Math.pow(value - 1, 3) + c1 * Math.pow(value - 1, 2);
+  };
 
   function setObjectOpacity(object, opacity) {
     object.traverse((child) => {
@@ -324,6 +330,9 @@ async function initMacintoshScene() {
     );
 
     diskRoot.add(wrapper);
+    if (!introComplete) {
+      setObjectOpacity(wrapper, 0);
+    }
 
     const entry = {
       section: config.section,
@@ -455,6 +464,20 @@ async function initMacintoshScene() {
   const clock = new THREE.Clock();
   const pointer = new THREE.Vector2(0, 0);
   const rotation = new THREE.Vector2(0, 0);
+  const introStartedAt = performance.now();
+  const introDuration = 1180;
+  const modelPivotHomePosition = modelPivot.position.clone();
+  const diskRootHomePosition = diskRoot.position.clone();
+
+  if (!introComplete) {
+    modelPivot.position.y = modelPivotHomePosition.y - 0.34;
+    modelPivot.scale.setScalar(0.78);
+    diskRoot.position.y = diskRootHomePosition.y - 0.22;
+    diskRoot.scale.setScalar(0.82);
+    setObjectOpacity(modelRoot, 0);
+    setObjectOpacity(diskRoot, 0);
+  }
+
   heroStage.addEventListener("pointermove", (event) => {
     const rect = heroStage.getBoundingClientRect();
     pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
@@ -550,6 +573,33 @@ async function initMacintoshScene() {
     });
   }
 
+  function updateIntro(now) {
+    if (introComplete) {
+      return;
+    }
+
+    const rawProgress = THREE.MathUtils.clamp((now - introStartedAt) / introDuration, 0, 1);
+    const liftProgress = easeOut(rawProgress);
+    const scaleProgress = easeOutBack(rawProgress);
+
+    modelPivot.position.y = THREE.MathUtils.lerp(modelPivotHomePosition.y - 0.34, modelPivotHomePosition.y, liftProgress);
+    modelPivot.scale.setScalar(THREE.MathUtils.lerp(0.78, 1, scaleProgress));
+    diskRoot.position.y = THREE.MathUtils.lerp(diskRootHomePosition.y - 0.22, diskRootHomePosition.y, liftProgress);
+    diskRoot.scale.setScalar(THREE.MathUtils.lerp(0.82, 1, scaleProgress));
+    setObjectOpacity(modelRoot, rawProgress);
+    setObjectOpacity(diskRoot, rawProgress);
+
+    if (rawProgress >= 1) {
+      introComplete = true;
+      modelPivot.position.copy(modelPivotHomePosition);
+      modelPivot.scale.setScalar(1);
+      diskRoot.position.copy(diskRootHomePosition);
+      diskRoot.scale.setScalar(1);
+      setObjectOpacity(modelRoot, 1);
+      setObjectOpacity(diskRoot, 1);
+    }
+  }
+
   function animate() {
     clock.getDelta();
     const now = performance.now();
@@ -562,6 +612,7 @@ async function initMacintoshScene() {
     modelPivot.rotation.y = rotation.y;
     heroStage.style.setProperty("--mac-yaw", THREE.MathUtils.radToDeg(rotation.y).toFixed(3));
     heroStage.style.setProperty("--about-bob", `${(Math.sin(now * 0.002) * 2.4).toFixed(2)}px`);
+    updateIntro(now);
     updateDiskAnimation(now);
     updateDiskHoverMotion(now);
     renderer.render(scene, camera);
