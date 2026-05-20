@@ -81,11 +81,11 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 72px;
-  padding: 14px clamp(18px, 4vw, 56px);
-  border-bottom: 1px solid rgba(255, 239, 210, 0.12);
-  background: rgba(136, 112, 82, 0.22);
-  backdrop-filter: blur(18px) saturate(1.08);
+  min-height: 64px;
+  padding: 10px clamp(18px, 4vw, 56px);
+  border-bottom: 1px solid rgba(255, 248, 232, 0.08);
+  background: rgba(226, 214, 192, 0.12);
+  backdrop-filter: blur(12px) saturate(0.95);
 }
 
 .brand,
@@ -98,7 +98,7 @@ textarea {
 }
 
 .brand {
-  color: rgba(23, 23, 23, 0.76);
+  color: rgba(23, 23, 23, 0.68);
   font-size: 0.95rem;
   font-weight: 720;
   letter-spacing: 0.04em;
@@ -139,15 +139,15 @@ footer a:hover {
 }
 
 .icon-link {
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid rgba(67, 50, 34, 0.16);
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(67, 50, 34, 0.12);
   border-radius: var(--radius);
-  background: rgba(246, 238, 223, 0.58);
+  background: rgba(246, 238, 223, 0.48);
   color: var(--ink);
   font-weight: 680;
   white-space: nowrap;
-  box-shadow: 0 10px 24px rgba(45, 34, 24, 0.08);
+  box-shadow: 0 8px 20px rgba(45, 34, 24, 0.06);
 }
 
 .icon-link svg,
