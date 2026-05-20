@@ -82,7 +82,7 @@ const hubContent = {
         </section>
         <section>
           <h3>Technologies / Frameworks</h3>
-          <div class="hub-skill-grid"><span>Spring Boot</span><span>React</span><span>React Native</span><span>Flask</span><span>RESTful APIs</span><span>PyTorch</span><span>TensorFlow</span><span>Hugging Face</span></div>
+          <div class="hub-skill-grid"><span>Spring Boot</span><span>React</span><span>React Native</span><span>Flask</span><span>RESTful APIs</span><span>Machine Learning</span><span>PyTorch</span><span>TensorFlow</span><span>Hugging Face</span></div>
         </section>
       </div>
     `,
