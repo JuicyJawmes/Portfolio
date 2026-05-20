@@ -49,12 +49,12 @@ const hubContent = {
         <article class="hub-card">
           <strong>AR LingoQuest</strong>
           <p>AR language-learning app with vocabulary practice and immersive visual prompts.</p>
-          <div class="hub-tag-row"><span>Unity</span><span>C#</span><span>AR</span><span>Interactive UI</span></div>
+          <div class="hub-tag-row"><span>Unity</span><span>C#</span><span>AR</span><span>OpenAI</span><span>Google Cloud</span></div>
         </article>
         <article class="hub-card">
           <strong>Pokemon Fullstack</strong>
           <p>Full-stack Pokemon app with search, responsive UI, and REST API data.</p>
-          <div class="hub-tag-row"><span>React</span><span>Node.js</span><span>REST API</span><span>Responsive UI</span></div>
+          <div class="hub-tag-row"><span>React</span><span>Node.js</span><span>REST API</span><span>Firebase</span><span>Stripe</span></div>
         </article>
       </div>
     `,
