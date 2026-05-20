@@ -229,6 +229,7 @@ async function initMacintoshScene() {
       tilt: THREE.MathUtils.degToRad(18),
       label: "Projects",
       bobOffset: 0,
+      tint: new THREE.Color(1.22, 1.02, 1.0),
     },
     {
       section: "experience",
@@ -238,6 +239,7 @@ async function initMacintoshScene() {
       tilt: THREE.MathUtils.degToRad(18),
       label: "Experience",
       bobOffset: 1.25,
+      tint: new THREE.Color(1.02, 1.2, 1.02),
     },
     {
       section: "skills",
@@ -247,6 +249,7 @@ async function initMacintoshScene() {
       tilt: THREE.MathUtils.degToRad(18),
       label: "Skills",
       bobOffset: 2.5,
+      tint: new THREE.Color(1.02, 1.08, 1.24),
     },
   ];
 
@@ -293,17 +296,17 @@ async function initMacintoshScene() {
     material.needsUpdate = true;
   }
 
-  function liftFloppyMaterial(material) {
+  function liftFloppyMaterial(material, tint) {
     if (!material?.color) {
       return;
     }
 
-    material.color.setRGB(1.18, 1.18, 1.18);
-    material.roughness = Math.min(material.roughness ?? 0.74, 0.64);
+    material.color.copy(tint || new THREE.Color(1.18, 1.18, 1.18));
+    material.roughness = Math.min(material.roughness ?? 0.74, 0.58);
 
     if (material.emissive) {
-      material.emissive.setRGB(1, 0.9, 0.78);
-      material.emissiveIntensity = 0.06;
+      material.emissive.copy(tint || new THREE.Color(1, 0.9, 0.78));
+      material.emissiveIntensity = 0.09;
     }
 
     material.needsUpdate = true;
@@ -345,7 +348,7 @@ async function initMacintoshScene() {
       materials.forEach((material) => {
         if (material) {
           material.roughness = Math.min(material.roughness ?? 0.8, 0.88);
-          liftFloppyMaterial(material);
+          liftFloppyMaterial(material, config.tint);
           material.needsUpdate = true;
         }
       });
