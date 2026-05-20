@@ -118,6 +118,7 @@ function openHub(section) {
   hubBody.innerHTML = content.body;
   heroStage.dataset.activeHub = section;
   heroStage.classList.add("is-detail-open");
+  document.body.classList.add("is-hub-detail-open");
   hubDetail.setAttribute("aria-hidden", "false");
 }
 
@@ -137,6 +138,7 @@ function closeHub() {
   activeHub = null;
   heroStage?.classList.remove("is-detail-open");
   heroStage?.removeAttribute("data-active-hub");
+  document.body.classList.remove("is-hub-detail-open");
   hubDetail?.setAttribute("aria-hidden", "true");
   diskDock?.classList.remove("is-inserting");
   diskButtons.forEach((button) => button.classList.remove("is-selected"));

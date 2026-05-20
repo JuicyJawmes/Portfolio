@@ -2024,6 +2024,12 @@ footer div {
     line-height: 1.22;
   }
 
+  body.is-hub-detail-open .hero-name {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-10px);
+  }
+
   .keyboard-stage {
     width: min(100vw, 520px);
     min-height: clamp(430px, 58svh, 500px);
@@ -2041,6 +2047,19 @@ footer div {
     min-height: 30px;
     padding: 6px 9px;
     font-size: 0.66rem;
+  }
+
+  .headshot-frame {
+    width: clamp(78px, 22vw, 96px);
+  }
+
+  .mac-hotspot .hotspot-label {
+    min-height: 25px;
+    padding: 0 10px;
+    font-size: 0.58rem;
+    box-shadow:
+      0 8px 22px rgba(23, 23, 23, 0.13),
+      0 0 0 0 rgba(37, 111, 108, 0.2);
   }
 
   .disk-dock {
