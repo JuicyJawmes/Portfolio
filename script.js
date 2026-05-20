@@ -293,17 +293,74 @@ async function initMacintoshScene() {
     material.needsUpdate = true;
   }
 
+  const vibrantFloppyTextureCache = new WeakMap();
+
+  function createVibrantFloppyTexture(texture) {
+    if (!texture?.image || typeof document === "undefined") {
+      return texture;
+    }
+
+    if (vibrantFloppyTextureCache.has(texture)) {
+      return vibrantFloppyTextureCache.get(texture);
+    }
+
+    const image = texture.image;
+    const width = image.width || image.naturalWidth;
+    const height = image.height || image.naturalHeight;
+
+    if (!width || !height) {
+      return texture;
+    }
+
+    const canvasTexture = (() => {
+      const textureCanvas = document.createElement("canvas");
+      textureCanvas.width = width;
+      textureCanvas.height = height;
+
+      const context = textureCanvas.getContext("2d");
+
+      if (!context) {
+        return null;
+      }
+
+      context.filter = "saturate(1.24) contrast(1.08) brightness(1.02)";
+      context.drawImage(image, 0, 0, width, height);
+
+      return new THREE.CanvasTexture(textureCanvas);
+    })();
+
+    if (!canvasTexture) {
+      return texture;
+    }
+
+    canvasTexture.colorSpace = texture.colorSpace;
+    canvasTexture.flipY = texture.flipY;
+    canvasTexture.wrapS = texture.wrapS;
+    canvasTexture.wrapT = texture.wrapT;
+    canvasTexture.minFilter = texture.minFilter;
+    canvasTexture.magFilter = texture.magFilter;
+    canvasTexture.generateMipmaps = texture.generateMipmaps;
+    canvasTexture.needsUpdate = true;
+
+    vibrantFloppyTextureCache.set(texture, canvasTexture);
+    return canvasTexture;
+  }
+
   function liftFloppyMaterial(material) {
     if (!material?.color) {
       return;
     }
 
-    material.color.setRGB(1.12, 1.12, 1.12);
-    material.roughness = Math.min(material.roughness ?? 0.74, 0.62);
+    if (material.map) {
+      material.map = createVibrantFloppyTexture(material.map);
+    }
+
+    material.color.setScalar(1.02);
+    material.roughness = Math.min(material.roughness ?? 0.74, 0.58);
 
     if (material.emissive) {
       material.emissive.setRGB(1, 0.92, 0.82);
-      material.emissiveIntensity = 0.035;
+      material.emissiveIntensity = 0.025;
     }
 
     material.needsUpdate = true;
