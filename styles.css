@@ -1374,13 +1374,17 @@ footer div {
   display: block;
   width: clamp(112px, 9vw, 148px);
   aspect-ratio: 1;
-  border: 1px solid rgba(23, 23, 23, 0.42);
+  border: 1px solid rgba(37, 111, 108, 0.46);
   border-radius: 50%;
   overflow: hidden;
   background: #2b2d2e;
   box-shadow:
     0 14px 32px rgba(0, 0, 0, 0.34),
-    0 0 0 2px rgba(246, 247, 244, 0.18);
+    0 0 0 2px rgba(246, 247, 244, 0.18),
+    0 0 0 0 rgba(37, 111, 108, 0.18);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .mac-hotspot img {
@@ -1392,15 +1396,43 @@ footer div {
 }
 
 .mac-hotspot .hotspot-label {
+  position: relative;
   display: inline-flex;
   min-height: 30px;
   align-items: center;
   padding: 0 12px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(37, 111, 108, 0.24);
   border-radius: 999px;
-  background: rgba(246, 247, 244, 0.72);
-  box-shadow: 0 12px 30px rgba(23, 23, 23, 0.14);
+  background: rgba(246, 247, 244, 0.84);
+  box-shadow:
+    0 12px 30px rgba(23, 23, 23, 0.14),
+    0 0 0 0 rgba(37, 111, 108, 0.24);
   backdrop-filter: blur(16px);
+  animation: aboutCue 2.6s ease-in-out infinite;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.mac-hotspot:hover .headshot-frame,
+.mac-hotspot:focus-visible .headshot-frame {
+  border-color: rgba(37, 111, 108, 0.78);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.34),
+    0 0 0 2px rgba(246, 247, 244, 0.2),
+    0 0 0 7px rgba(37, 111, 108, 0.16);
+}
+
+.mac-hotspot:hover .hotspot-label,
+.mac-hotspot:focus-visible .hotspot-label {
+  border-color: rgba(37, 111, 108, 0.48);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 16px 34px rgba(23, 23, 23, 0.18),
+    0 0 0 6px rgba(37, 111, 108, 0.13);
+  transform: translateY(-1px);
 }
 
 .hotspot-monitor {
@@ -1574,6 +1606,21 @@ footer div {
     translate: 0 0;
     scale: 1;
     filter: blur(0);
+  }
+}
+
+@keyframes aboutCue {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 30px rgba(23, 23, 23, 0.14),
+      0 0 0 0 rgba(37, 111, 108, 0.22);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 32px rgba(23, 23, 23, 0.16),
+      0 0 0 7px rgba(37, 111, 108, 0.08);
   }
 }
 
