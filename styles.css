@@ -2007,17 +2007,34 @@ footer div {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    min-height: calc(100svh - 64px);
+    padding: 18px 16px 92px;
+  }
+
+  .hero-name {
+    top: 26px;
+    width: min(92vw, 420px);
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+  }
+
+  .hero-name small {
+    max-width: min(84vw, 360px);
+    font-size: 0.86rem;
+    line-height: 1.22;
+  }
+
   .keyboard-stage {
-    width: 108vw;
-    min-height: 560px;
+    width: min(100vw, 520px);
+    min-height: clamp(430px, 58svh, 500px);
   }
 
   .keyboard-model,
   .keyboard-stage.is-exploded .keyboard-model {
-    inset: 3% -4% auto;
-    width: 108%;
-    height: 520px;
-    min-height: 520px;
+    inset: 2% 0 auto;
+    width: 100%;
+    height: clamp(430px, 58svh, 500px);
+    min-height: 430px;
   }
 
   .mac-hotspot {
@@ -2040,6 +2057,12 @@ footer div {
 
   .disk-label {
     font-size: 0.6rem;
+  }
+
+  .contact-float {
+    bottom: max(24px, env(safe-area-inset-bottom));
+    min-height: 46px;
+    padding: 0 18px;
   }
 
   .hub-detail {

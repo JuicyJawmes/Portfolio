@@ -556,8 +556,11 @@ async function initMacintoshScene() {
     const rect = canvas.getBoundingClientRect();
     const width = Math.max(1, rect.width);
     const height = Math.max(1, rect.height);
+    const isNarrowFrame = width / height < 0.82;
 
     renderer.setSize(width, height, false);
+    camera.position.set(0, isNarrowFrame ? 1.95 : 1.82, isNarrowFrame ? 10.75 : 8.25);
+    camera.lookAt(0, isNarrowFrame ? 0.2 : 0.16, 0);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   };
