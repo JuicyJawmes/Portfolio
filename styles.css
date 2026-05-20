@@ -41,19 +41,21 @@ body::after {
 }
 
 body::before {
-  inset: 0;
+  inset: -10px;
   z-index: -2;
-  background: url("assets/background2.png") center / cover no-repeat;
-  opacity: 1;
+  background: url("assets/background2.png") center 54% / cover no-repeat;
+  opacity: 0.72;
+  filter: saturate(0.68) brightness(0.84) blur(2px);
+  transform: scale(1.015);
 }
 
 body::after {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 43%, rgba(245, 242, 226, 0.18), transparent 24%),
-    radial-gradient(circle at 50% 62%, rgba(20, 29, 31, 0.12), transparent 37%),
-    linear-gradient(180deg, rgba(110, 125, 126, 0.14) 0%, rgba(45, 58, 59, 0.24) 100%);
+    radial-gradient(ellipse at 50% 46%, rgba(246, 242, 224, 0.22) 0%, rgba(246, 242, 224, 0.12) 26%, transparent 44%),
+    radial-gradient(ellipse at 50% 64%, rgba(23, 23, 23, 0.1) 0%, transparent 38%),
+    linear-gradient(180deg, rgba(127, 142, 144, 0.36) 0%, rgba(74, 86, 86, 0.46) 100%);
 }
 
 body::selection {
